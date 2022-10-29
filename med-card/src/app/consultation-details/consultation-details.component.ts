@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Consultation } from '../model/consultation.model';
+import { ConsultationDetailsService } from '../services/consultation-details.service';
 
 @Component({
   selector: 'app-consultation-details',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsultationDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public consultDetailService: ConsultationDetailsService) { }
 
   ngOnInit(): void {
+    console.log(`on init: ${this.consultDetailService.consultation?.patient}`)
   }
 
 }
