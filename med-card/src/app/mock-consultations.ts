@@ -18,5 +18,14 @@ export const CONSULTATIONS: Consultation[] = [
     new Date(
       Date.now()-1
     )
+  ),
+  new Consultation(
+    3, "Петров Петр", "Ковид 2",
+    "Пить больше чая и воды",
+    "Терапевтическое отделение",
+    "Терапевт Терапевтович",
+    new Date(
+      Date()
+    )
   )
 ]

@@ -1,6 +1,6 @@
 export class Consultation {
-  private patient: string;
   public id: number;
+  public patient: string;
   public diagnosis: string;
   public recommendation: string;
   public department: string;

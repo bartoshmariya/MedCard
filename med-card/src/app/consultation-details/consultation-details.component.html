@@ -1,0 +1,49 @@
+<div *ngIf="consultDetailService.consultation as consult">
+  <div class="modal fade" id="moreModal" tabindex="-1" aria-labelledby="moreModalLable" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="moreModalLable">{{consult.patient}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <fieldset disabled>
+              <div class="mb-3">
+                <label for="patientTextInput" class="form-label">Пациент:</label>
+                <input type="text" id="patientTextInput" class="form-control" placeholder="{{consult.patient}}">
+              </div>
+              <div class="mb-3">
+                <label for="diagnosisTextInput" class="form-label">Диагноз:</label>
+                <input type="text" id="diagnosisTextInput" class="form-control" placeholder="{{consult.diagnosis}}">
+              </div>
+              <div class="mb-3">
+                <label for="dateСonclusionTextInput" class="form-label">Дата:</label>
+                <input type="text" id="dateConclusionTextInput" class="form-control" placeholder="{{consult.getDateConclusion() | date: 'medium'}}">
+              </div>
+              <div class="mb-3">
+                <label for="doctorTextInput" class="form-label">Доктор:</label>
+                <input type="text" id="doctorTextInput" class="form-control" placeholder="{{consult.doctor}}">
+              </div>
+              <div class="mb-3">
+                <label for="recommendationTextInput" class="form-label">Рекомендации:</label>
+                <input type="text" id="recommendationTextInput" class="form-control" placeholder="{{consult.recommendation}}">
+              </div>
+              <div class="mb-3">
+                <label for="departmentTextInput" class="form-label">Отделение:</label>
+                <input type="text" id="departmentTextInput" class="form-control" placeholder="{{consult.department}}">
+              </div>
+            </fieldset>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+          <button type="button" class="btn btn-primary">Сохранить изменения</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CONSULTATIONS } from '../mock-consultations';
 import { Consultation } from '../model/consultation.model';
+import { ConsultationService } from '../services/consultation.service';
+import { ConsultationDetailsService } from '../services/consultation-details.service';
 
 @Component({
   selector: 'app-consultation',
@@ -8,23 +10,30 @@ import { Consultation } from '../model/consultation.model';
   styleUrls: ['./consultation.component.scss']
 })
 export class ConsultationComponent implements OnInit {
-  constructor() { }
 
-  consultations = CONSULTATIONS;
+  constructor(private consultService: ConsultationService, private consultDetailSerivce: ConsultationDetailsService) { }
+
+  consultations: Consultation[] = [];
 
   selectedConsultation?: Consultation;
 
   ngOnInit(): void {
-
+    this.getConsultations();
   }
 
-  onSelect(consultation: Consultation): void {
+  onUpdate(consultation: Consultation): void {
     this.selectedConsultation = consultation;
-    console.log(this.selectedConsultation);
+    this.consultDetailSerivce.update(this.selectedConsultation);
   }
 
   onDelete(consultation: Consultation): void {
+    this.selectedConsultation = consultation;
+    console.log(`on delete ${this.selectedConsultation.id}`)
+  }
 
+  getConsultations(): void {
+    this.consultService.getConsultations()
+    .subscribe(consults => this.consultations = consults);
   }
 
 }
