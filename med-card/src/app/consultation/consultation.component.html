@@ -1,0 +1,14 @@
+<div *ngFor="let consult of testConsultations">
+  <div>
+    {{consult.getPatient()}} - {{consult.getDoctorAndDepartment()}}
+  </div>
+  <div>
+    {{consult.getDiagnosisAndRecommendation()}}
+  </div>
+  <div>
+    {{consult.getDateConclusion() | date: 'medium'}}
+  </div>
+</div>
+
+
+<router-outlet></router-outlet>
