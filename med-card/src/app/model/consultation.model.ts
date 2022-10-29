@@ -1,11 +1,11 @@
 export class Consultation {
-  private id: number;
   private patient: string;
-  private diagnosis: string;
-  private recommendation: string;
-  private department: string;
-  private doctor: string;
-  private dateСonclusion: Date;
+  public id: number;
+  public diagnosis: string;
+  public recommendation: string;
+  public department: string;
+  public doctor: string;
+  public dateСonclusion: Date;
 
   constructor(id:number,
               patient: string,

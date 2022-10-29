@@ -1,14 +1,26 @@
-<div *ngFor="let consult of testConsultations">
-  <div>
-    {{consult.getPatient()}} - {{consult.getDoctorAndDepartment()}}
-  </div>
-  <div>
-    {{consult.getDiagnosisAndRecommendation()}}
-  </div>
-  <div>
-    {{consult.getDateConclusion() | date: 'medium'}}
-  </div>
+<div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Пациент</th>
+        <th scope="col">Доктор</th>
+        <th scope="col">Диагноз</th>
+        <th scope="col">Дата обращения</th>
+        <th scope="col">Удалить</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let consult of consultations; index as indexOfelement;" (click)="onSelect(consult)">
+        <th scope="row" >{{indexOfelement}}</th>
+        <td>{{consult.getPatient()}}</td>
+        <td>{{consult.doctor}}</td>
+        <td>{{consult.diagnosis}}</td>
+        <td>{{consult.getDateConclusion() | date: 'medium'}}</td>
+        <td><button class= "btn btn-danger" type="button" (click)="onDelete(consult)">Удалить</button></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-
 
 <router-outlet></router-outlet>

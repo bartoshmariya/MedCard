@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CONSULTATIONS } from '../mock-consultations';
 import { Consultation } from '../model/consultation.model';
 
 @Component({
@@ -7,30 +8,23 @@ import { Consultation } from '../model/consultation.model';
   styleUrls: ['./consultation.component.scss']
 })
 export class ConsultationComponent implements OnInit {
-  
-  testConsultations: Consultation[] = [
-    new Consultation(
-      1, "Иванов Иван", "Болен болезнью 1",
-      "Пить больше чая",
-      "Терапевтическое отделение",
-      "Терапевт Терапевтов",
-      new Date(
-        Date.now()
-      )
-    ),
-    new Consultation(
-      2, "Иванов Петр", "Ковид",
-      "Пить больше чая и воды",
-      "Терапевтическое отделение",
-      "Терапевт Терапевтович",
-      new Date(
-        Date.now()-1
-      )
-    )
-  ]
   constructor() { }
 
+  consultations = CONSULTATIONS;
+
+  selectedConsultation?: Consultation;
+
   ngOnInit(): void {
+
+  }
+
+  onSelect(consultation: Consultation): void {
+    this.selectedConsultation = consultation;
+    console.log(this.selectedConsultation);
+  }
+
+  onDelete(consultation: Consultation): void {
+
   }
 
 }
