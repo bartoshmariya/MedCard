@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<Title>Консультация</Title>
+{% endblock %}
+
+{% block body %}
+<div class="container p-6">
+<!--    <h1>Все консультации</h1>-->
+    <div class="alert-info">
+        <div class="row">
+            <p class="col-6">Дата приема:</p>
+            <small class="col-6">{{ consult.date.date() }}</small>
+        </div>
+        <div class="alert alert-danger">
+            <h3>Основное заболевание:</h3>
+            <p>{{ consult.diagnosis }}</p>
+        </div>
+        <div class="alert alert-primary">
+            <h3>Рекомендации:</h3>
+            <p>{{ consult.recommendation }}</p>
+        </div>
+        <div class="row">
+            <p class="col-4"><b>Специализация</b>:</p>
+            <p class="col-8">{{ consult.department }}</p>
+        </div>
+        <div class="row">
+            <p class="col-4"><b>Врач</b>:</p>
+            <p class="col-8">{{ consult.doctor }}</p>
+        </div>
+        <a href="/consultations/{{ consult.id }}/update" class="btn btn-light">Изменить</a>
+        <a href="/consultations/{{ consult.id }}/delete" class="btn btn-danger">Удалить</a>
+    </div>
+</div>
+{% endblock %}

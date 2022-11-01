@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<Title>Консультация</Title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Изменить консультацию</h1>
+    <form method="post">
+        <div class="mb-3 input-group">
+            <label for="patient" class="input-group-text">Пациент</label>
+            <input type="text" name="patient" id="patient" class="form-control" value="{{ consult.patient }}">
+        </div>
+        <div class="mb-3 input-group">
+            <label for="diagnosis" class="input-group-text">Основное заболевание</label>
+            <input type="text" name="diagnosis" id="diagnosis" class="form-control" value="{{ consult.diagnosis }}">
+        </div>
+        <div class="mb-3">
+            <label for="recommendation" class="form-label"><b>Рекомендации</b></label>
+            <textarea type="text" name="recommendation" id="recommendation" class="form-control">{{ consult.recommendation }}</textarea>
+        </div>
+        <div class="mb-3 input-group">
+            <label for="department" class="input-group-text">Специализация</label>
+            <input type="text" name="department" id="department" class="form-control" value="{{ consult.department }}">
+        </div>
+        <div class="mb-3 input-group">
+            <label for="doctor" class="input-group-text">Врач</label>
+            <input type="text" name="doctor" id="doctor" class="form-control" value="{{ consult.doctor }}">
+        </div>
+
+        <button type="submit" class="btn btn-success bd-indigo-200">Обновить!</button>
+    </form>
+</div>
+{% endblock %}

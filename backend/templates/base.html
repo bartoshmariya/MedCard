@@ -10,6 +10,81 @@
     {% endblock %}
 </head>
 <body>
+    <nav class="py-2 bg-light border-bottom">
+        <div class="container d-flex flex-wrap">
+            <ul class="nav me-auto">
+                <li class="nav-item"><a href="/" class="nav-link link-dark px-2 active" aria-current="page">Главная</a></li>
+                <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Features</a></li>
+                <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Pricing</a></li>
+                <li class="nav-item"><a href="#" class="nav-link link-dark px-2">FAQs</a></li>
+                <li class="nav-item"><a href="#" class="nav-link link-dark px-2">About</a></li>
+            </ul>
+                <ul class="nav">
+                <li class="nav-item"><a href="/consultations" class="nav-link link-dark px-2">Все записи</a></li>
+                    <li class="nav-item"><a type="button" href="/create-consultation" class="nav-link link-dark px-2" data-bs-toogle='modal' data-bs-target="#exampleModal">Создать</a></li>
+            </ul>
+        </div>
+    </nav>
+
+<!--    <button type="button" class="btn btn-primary" data-bs-toogle="modal" data-bs-target="#exampleModal">Создать</button>-->
+
+<!--    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">-->
+<!--            <div class="modal-content">-->
+<!--              <div class="modal-header">-->
+<!--                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>-->
+<!--                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--              </div>-->
+<!--              <div class="modal-body">-->
+<!--                ...-->
+<!--              </div>-->
+<!--              <div class="modal-footer">-->
+<!--                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+<!--                <button type="button" class="btn btn-primary">Save changes</button>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--<div class="modal modal-signin position-static d-block bg-secondary py-5" tabindex="-1" role="dialog" id="modalSignin">-->
+<!--<div class="modal-dialog" role="document">-->
+<!--<div class="modal-content rounded-4 shadow">-->
+<!--<div class="modal-header p-5 pb-4 border-bottom-0">-->
+<!--&lt;!&ndash; <h1 class="modal-title fs-5" >Modal title</h1> &ndash;&gt;-->
+<!--<h1 class="fw-bold mb-0 fs-2">Sign up for free</h1>-->
+<!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--</div>-->
+
+<!--<div class="modal-body p-5 pt-0">-->
+<!--<form class="">-->
+<!--<div class="form-floating mb-3">-->
+<!--<input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com">-->
+<!--<label for="floatingInput">Email address</label>-->
+<!--</div>-->
+<!--<div class="form-floating mb-3">-->
+<!--<input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password">-->
+<!--<label for="floatingPassword">Password</label>-->
+<!--</div>-->
+<!--<button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Sign up</button>-->
+<!--<small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>-->
+<!--<hr class="my-4">-->
+<!--<h2 class="fs-5 fw-bold mb-3">Or use a third-party</h2>-->
+<!--<button class="w-100 py-2 mb-2 btn btn-outline-dark rounded-3" type="submit">-->
+<!--<svg class="bi me-1" width="16" height="16"><use xlink:href="#twitter"></use></svg>-->
+<!--Sign up with Twitter-->
+<!--</button>-->
+<!--<button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="submit">-->
+<!--<svg class="bi me-1" width="16" height="16"><use xlink:href="#facebook"></use></svg>-->
+<!--Sign up with Facebook-->
+<!--</button>-->
+<!--<button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit">-->
+<!--<svg class="bi me-1" width="16" height="16"><use xlink:href="#github"></use></svg>-->
+<!--Sign up with GitHub-->
+<!--</button>-->
+<!--</form>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
     {% block body %}{% endblock %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>

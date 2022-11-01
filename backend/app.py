@@ -16,34 +16,58 @@ control = Controller()
 
 @app.route("/")
 def root():
-    return "<p>Hello, World!</p>"
+    return render_template('index.html')
 
 
-@app.route("/add", methods=["POST", "GET"])
+@app.route("/create-consultation", methods=["POST", "GET"])
 def add():
     if request.method == "POST":
-        # date = request.form['date']
+        patient = request.form['patient']
         diagnosis = request.form['diagnosis']
         recommendation = request.form['recommendation']
         department = request.form['department']
         doctor = request.form['doctor']
 
-        control.add_consult(diagnosis, recommendation, department, doctor)
+        control.add_consult(patient, diagnosis, recommendation, department, doctor)
 
-        # consult = Consultation(date=date, diagnosis=diagnosis, recommendation=recommendation, department=department,
-        #                    doctor=doctor)
-        # db.session.add(consult)
-        # db.session.commit()
-        return redirect("/")
-        # return "При добавлении возникла ошибка"
+        return redirect("/consultations")
     else:
-        return render_template('root.html')
+        return render_template('create-consult.html')
 
 
-@app.route("/all-consultations")
+@app.route("/consultations")
 def all_consultations():
     consults = control.get_all_consults()
     return render_template('consults.html', consults=consults)
+
+
+@app.route("/consultations/<int:id>")
+def consultation_id(id):
+    consult = control.get_consult_by_id(id)
+    return render_template('consultation.html', consult=consult)
+
+
+@app.route("/consultations/<int:id>/delete")
+def consultation_delete(id):
+    control.delete_consult_by_id(id)
+    return redirect('/consultations')
+
+
+@app.route("/consultations/<int:id>/update", methods=["POST", "GET"])
+def consultation_update(id):
+    consult = control.get_consult_by_id(id)
+
+    if request.method == "POST":
+        patient = request.form['patient']
+        diagnosis = request.form['diagnosis']
+        recommendation = request.form['recommendation']
+        department = request.form['department']
+        doctor = request.form['doctor']
+
+        control.update_consult_by_id(id, patient, diagnosis, recommendation, department, doctor)
+        return redirect("/consultations")
+    else:
+        return render_template('update-consultation.html', consult=consult)
 
 
 if __name__ == "__main__":
