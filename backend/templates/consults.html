@@ -11,6 +11,7 @@
     {% for el in consults %}
     <div class="alert-info">
         <h2>{{ el.date }}</h2>
+        <p>{{ el.patient }}</p>
         <p>{{ el.diagnosis }}</p>
         <p>{{ el.recommendation }}</p>
         <p>{{ el.department }}</p>

@@ -1,5 +1,5 @@
 # Installing
-`pip install virualenv`
+`pip install virtualenv`
 
 `virtualenv venv`
 

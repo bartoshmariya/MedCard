@@ -1,13 +1,15 @@
 from models import db
 from models import Consultation
+from datetime import datetime, date, time
 
 
 class Controller:
-    def add_consult(self, diagnosis, recommendation, department, doctor):
-        consult = Consultation(diagnosis=str(diagnosis),
-                               recommendation=str(recommendation),
-                               department=str(department),
-                               doctor=str(doctor))
+    def add_consult(self, patient, diagnosis, recommendation, department, doctor):
+        consult = Consultation(patient=str(patient),
+                                diagnosis=str(diagnosis),
+                                recommendation=str(recommendation),
+                                department=str(department),
+                                doctor=str(doctor))
         db.session.add(consult)
         db.session.commit()
 

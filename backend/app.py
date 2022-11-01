@@ -23,18 +23,19 @@ def root():
 def add():
     if request.method == "POST":
         # date = request.form['date']
+        patient = request.form['patient']
         diagnosis = request.form['diagnosis']
         recommendation = request.form['recommendation']
         department = request.form['department']
         doctor = request.form['doctor']
 
-        control.add_consult(diagnosis, recommendation, department, doctor)
+        control.add_consult(patient, diagnosis, recommendation, department, doctor)
 
         # consult = Consultation(date=date, diagnosis=diagnosis, recommendation=recommendation, department=department,
         #                    doctor=doctor)
         # db.session.add(consult)
         # db.session.commit()
-        return redirect("/")
+        return redirect("/all-consultations")
         # return "При добавлении возникла ошибка"
     else:
         return render_template('root.html')
