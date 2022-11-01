@@ -12,7 +12,7 @@ export class ConsultationDetailsComponent implements OnInit {
   constructor(public consultDetailService: ConsultationDetailsService) { }
 
   ngOnInit(): void {
-    console.log(`on init: ${this.consultDetailService.consultation?.patient}`)
+   
   }
 
 }

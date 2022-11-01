@@ -29,6 +29,7 @@ export class ConsultationComponent implements OnInit {
   onDelete(consultation: Consultation): void {
     this.selectedConsultation = consultation;
     console.log(`on delete ${this.selectedConsultation.id}`)
+    this.consultDetailSerivce.deleteConsultation(this.selectedConsultation);
   }
 
   getConsultations(): void {
