@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<Title>Consultations</Title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Все консультации</h1>
+
+    {% for el in consults %}
+    <div class="alert-info">
+        <h2>{{ el.date }}</h2>
+        <p>{{ el.diagnosis }}</p>
+        <p>{{ el.recommendation }}</p>
+        <p>{{ el.department }}</p>
+        <p>{{ el.doctor }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

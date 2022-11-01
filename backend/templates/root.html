@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<Title>Root</Title>
+{% endblock %}
+
+{% block body %}
+<div class="container col-6">
+    <h1>Добавить консультацию</h1>
+    <form method="post">
+        <input type="text" name="diagnosis" id="diagnosis" class="form-control m-3">
+        <textarea type="text" name="recommendation" id="recommendation" class="form-control m-3"></textarea>
+        <input type="text" name="department" id="department" class="form-control m-3">
+        <input type="text" name="doctor" id="doctor" class="form-control m-3">
+        <button type="submit" class="btn btn-success">OK!</button>
+    </form>
+</div>
+{% endblock %}
