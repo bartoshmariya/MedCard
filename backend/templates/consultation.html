@@ -1,16 +1,19 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<Title>Консультация</Title>
+Консультация
 {% endblock %}
 
 {% block body %}
-<div class="container p-6">
-<!--    <h1>Все консультации</h1>-->
-    <div class="alert-info">
+<div class="container">
+    <div class="mt-4">
         <div class="row">
-            <p class="col-6">Дата приема:</p>
-            <small class="col-6">{{ consult.date.date() }}</small>
+            <p class="col-4">Дата приема:</p>
+            <small class="col">{{ consult.date.date() }}</small>
+        </div>
+        <div class="row">
+            <p class="col-4">Пацинет:</p>
+            <small class="col">{{ consult.patient }}</small>
         </div>
         <div class="alert alert-danger">
             <h3>Основное заболевание:</h3>
@@ -22,14 +25,17 @@
         </div>
         <div class="row">
             <p class="col-4"><b>Специализация</b>:</p>
-            <p class="col-8">{{ consult.department }}</p>
+            <p class="col">{{ consult.department }}</p>
         </div>
         <div class="row">
             <p class="col-4"><b>Врач</b>:</p>
-            <p class="col-8">{{ consult.doctor }}</p>
+            <p class="col">{{ consult.doctor }}</p>
         </div>
-        <a href="/consultations/{{ consult.id }}/update" class="btn btn-light">Изменить</a>
-        <a href="/consultations/{{ consult.id }}/delete" class="btn btn-danger">Удалить</a>
+        <div class="btn-group">
+            <a href="/consultations" class="btn btn-light">Назад</a>
+            <a type="button" class="btn btn-secondary" href="/consultations/{{ consult.id }}/update">Изменить</a>
+            <a type="button" class="btn btn-dark" href="/consultations/{{ consult.id }}/delete">Удалить</a>
+        </div>
     </div>
 </div>
 {% endblock %}

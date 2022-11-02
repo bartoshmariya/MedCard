@@ -1,52 +1,34 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<Title>Root</Title>
+Добавить
 {% endblock %}
 
 {% block body %}
 <div class="container">
-    <h1>Добавить консультацию</h1>
+    <h1 class="mt-4 mb-4">Добавить консультацию</h1>
     <form method="post">
         <div class="mb-3 input-group">
-            <label for="patient" class="input-group-text">Пациент</label>
+            <label for="patient" class="input-group-text col-3">Пациент</label>
             <input type="text" name="patient" id="patient" class="form-control">
         </div>
         <div class="mb-3 input-group">
-            <label for="diagnosis" class="input-group-text">Основное заболевание</label>
+            <label for="diagnosis" class="input-group-text col-3">Основное заболевание</label>
             <input type="text" name="diagnosis" id="diagnosis" class="form-control">
         </div>
-        <div class="mb-3">
-            <label for="recommendation" class="form-label"><b>Рекомендации</b></label>
+        <div class="mb-3 input-group">
+            <label for="recommendation" class="input-group-text col-3">Рекомендации</label>
             <textarea type="text" name="recommendation" id="recommendation" class="form-control"></textarea>
         </div>
         <div class="mb-3 input-group">
-            <label for="department" class="input-group-text">Специализация</label>
+            <label for="department" class="input-group-text col-3">Специализация</label>
             <input type="text" name="department" id="department" class="form-control">
         </div>
         <div class="mb-3 input-group">
-            <label for="doctor" class="input-group-text">Врач</label>
+            <label for="doctor" class="input-group-text col-3">Врач</label>
             <input type="text" name="doctor" id="doctor" class="form-control">
         </div>
-
-        <button type="submit" class="btn btn-success bd-indigo-200">OK!</button>
+        <button type="submit" class="btn btn-dark bd-indigo-200">Добавить</button>
     </form>
 </div>
-<!--<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
-<!--    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">-->
-<!--        <div class="modal-content">-->
-<!--          <div class="modal-header">-->
-<!--            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>-->
-<!--            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-<!--          </div>-->
-<!--          <div class="modal-body">-->
-<!--            ...-->
-<!--          </div>-->
-<!--          <div class="modal-footer">-->
-<!--            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
-<!--            <button type="button" class="btn btn-primary">Save changes</button>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
 {% endblock %}

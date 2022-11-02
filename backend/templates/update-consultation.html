@@ -9,27 +9,29 @@
     <h1>Изменить консультацию</h1>
     <form method="post">
         <div class="mb-3 input-group">
-            <label for="patient" class="input-group-text">Пациент</label>
-            <input type="text" name="patient" id="patient" class="form-control" value="{{ consult.patient }}">
+            <label for="patient" class="input-group-text col-3">Пациент</label>
+            <input type="text" name="patient" id="patient" class="form-control">
         </div>
         <div class="mb-3 input-group">
-            <label for="diagnosis" class="input-group-text">Основное заболевание</label>
-            <input type="text" name="diagnosis" id="diagnosis" class="form-control" value="{{ consult.diagnosis }}">
-        </div>
-        <div class="mb-3">
-            <label for="recommendation" class="form-label"><b>Рекомендации</b></label>
-            <textarea type="text" name="recommendation" id="recommendation" class="form-control">{{ consult.recommendation }}</textarea>
+            <label for="diagnosis" class="input-group-text col-3">Основное заболевание</label>
+            <input type="text" name="diagnosis" id="diagnosis" class="form-control">
         </div>
         <div class="mb-3 input-group">
-            <label for="department" class="input-group-text">Специализация</label>
-            <input type="text" name="department" id="department" class="form-control" value="{{ consult.department }}">
+            <label for="recommendation" class="input-group-text col-3">Рекомендации</label>
+            <textarea type="text" name="recommendation" id="recommendation" class="form-control"></textarea>
         </div>
         <div class="mb-3 input-group">
-            <label for="doctor" class="input-group-text">Врач</label>
-            <input type="text" name="doctor" id="doctor" class="form-control" value="{{ consult.doctor }}">
+            <label for="department" class="input-group-text col-3">Специализация</label>
+            <input type="text" name="department" id="department" class="form-control">
         </div>
-
-        <button type="submit" class="btn btn-success bd-indigo-200">Обновить!</button>
+        <div class="mb-3 input-group">
+            <label for="doctor" class="input-group-text col-3">Врач</label>
+            <input type="text" name="doctor" id="doctor" class="form-control">
+        </div>
+        <div class="btn-group">
+            <a href="/consultations" class="btn btn-light bd-indigo-200">Отменить</a>
+            <button type="submit" class="btn btn-dark bd-indigo-200">Обновить!</button>
+        </div>
     </form>
 </div>
 {% endblock %}

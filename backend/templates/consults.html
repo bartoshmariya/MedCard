@@ -1,27 +1,31 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<Title>Консультации</Title>
+Консультации
 {% endblock %}
 
 {% block body %}
-<div class="container">
-    <h1>Все консультации</h1>
-
+<div class="container mt-4">
+    <h1 class="justify-content-center mb-4">Все консультации</h1>
     {% if consults|length > 0 %}
-
-        <div class="list-group">
-            {% for el in consults %}
-            <a href="/consultations/{{ el.id }}" class="list-group-item list-group-item-action" aria-current="true">
-                <p class="mb-1">{{ el.patient }}</p>
-                <p>{{ el.diagnosis }}</p>
-                <small>{{ el.date.date() }}</small>
-            </a>
-            {% endfor %}
-        </div>
+        {% for el in consults %}
+            <div class="alert alert-light">
+                <div class="row">
+                    <div class="col-10">
+                        <p>{{ el.patient }}</p>
+                        <p>{{ el.diagnosis }}</p>
+                        <p>{{ el.date.date() }}</p>
+                    </div>
+                    <div class="btn-group-vertical col" role="group" aria-label="Basic example">
+                        <a type="button" class="btn btn-light" href="/consultations/{{ el.id }}">Подробнее</a>
+                        <a type="button" class="btn btn-secondary" href="/consultations/{{ el.id }}/update">Изменить</a>
+                        <a type="button" class="btn btn-dark" href="/consultations/{{ el.id }}/delete">Удалить</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
     {% else %}
         <p>Вы пока не посещали врачей</p>
     {% endif %}
-
 </div>
 {% endblock %}
