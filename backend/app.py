@@ -1,12 +1,15 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, jsonify
 from flask_migrate import Migrate
-from models import db
+from models import db, ma, Consultation, consults_schema, consult_schema
 from controller import Controller
+import json
 
 app = Flask(__name__)
 app.config.from_object('config')
 
 db.init_app(app)
+ma.init_app(app)
+
 migrate = Migrate(app, db)
 
 with app.app_context():
@@ -40,6 +43,12 @@ def add():
     else:
         return render_template('root.html')
 
+
+@app.route('/med-card/api/consultations',  methods=['GET'])
+def get_all_consults():
+    consults = Consultation.query.all()
+    result = consults_schema.dump(consults)
+    return jsonify({'consults': result})
 
 @app.route("/all-consultations")
 def all_consultations():

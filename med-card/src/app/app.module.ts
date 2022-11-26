@@ -7,13 +7,15 @@ import { HomeComponent } from './home/home.component';
 import { ConsultationComponent } from './consultation/consultation.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { AddConsultationComponent } from './add-consultation/add-consultation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConsultationDetailsComponent,
     HomeComponent,
-    ConsultationComponent
+    ConsultationComponent,
+    AddConsultationComponent
   ],
   imports: [
     BrowserModule,

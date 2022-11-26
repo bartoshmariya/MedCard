@@ -1,7 +1,11 @@
 from flask_sqlalchemy import SQLAlchemy
+from flask_marshmallow import Marshmallow
 from datetime import datetime
 
+from marshmallow import Schema, fields
+
 db = SQLAlchemy()
+ma = Marshmallow()
 
 
 class Consultation(db.Model):
@@ -15,3 +19,17 @@ class Consultation(db.Model):
 
      def __repr__(self):
           return 'Consultation %r' % self.id
+
+
+class ConsultationSchema(Schema):
+     id = fields.Int(dump_only=True)
+     date = fields.DateTime()
+     patient = fields.Str()
+     diagnosis = fields.Str()
+     recommendation = fields.Str()
+     department = fields.Str()
+     doctor = fields.Str()
+
+
+consult_schema = ConsultationSchema()
+consults_schema = ConsultationSchema(many=True)

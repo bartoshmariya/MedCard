@@ -1,7 +1,7 @@
 from models import db
 from models import Consultation
 from datetime import datetime, date, time
-
+import json
 
 class Controller:
     def add_consult(self, patient, diagnosis, recommendation, department, doctor):
@@ -16,4 +16,5 @@ class Controller:
     def get_all_consults(self):
         consults = Consultation.query.order_by(Consultation.date).all()
         return consults
+
 
