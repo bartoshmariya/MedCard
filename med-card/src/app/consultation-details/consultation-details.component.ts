@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Cons } from 'rxjs';
 import { Consultation } from '../model/consultation.model';
 import { ConsultationDetailsService } from '../services/consultation-details.service';
 
@@ -10,9 +11,9 @@ import { ConsultationDetailsService } from '../services/consultation-details.ser
 export class ConsultationDetailsComponent implements OnInit {
 
   constructor(public consultDetailService: ConsultationDetailsService) { }
-
+  consultation!: Consultation;
   ngOnInit(): void {
-   
+
   }
 
 }

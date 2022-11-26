@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CONSULTATIONS } from '../mock-consultations';
 import { Consultation } from '../model/consultation.model';
 import { ConsultationService } from '../services/consultation.service';
 import { ConsultationDetailsService } from '../services/consultation-details.service';
@@ -18,23 +17,23 @@ export class ConsultationComponent implements OnInit {
   selectedConsultation?: Consultation;
 
   ngOnInit(): void {
-    this.getConsultations();
+    this.consultService.getConsultations().subscribe((data: Consultation[]) => this.consultations = data);
   }
 
   onUpdate(consultation: Consultation): void {
-    this.selectedConsultation = consultation;
-    this.consultDetailSerivce.update(this.selectedConsultation);
+    //this.selectedConsultation = consultation;
+    //this.consultDetailSerivce.update(this.selectedConsultation);
   }
 
   onDelete(consultation: Consultation): void {
-    this.selectedConsultation = consultation;
-    console.log(`on delete ${this.selectedConsultation.id}`)
-    this.consultDetailSerivce.deleteConsultation(this.selectedConsultation);
+    //this.selectedConsultation = consultation;
+    //console.log(`on delete ${this.selectedConsultation.id}`)
+    //this.consultDetailSerivce.deleteConsultation(this.selectedConsultation);
   }
 
   getConsultations(): void {
-    this.consultService.getConsultations()
-    .subscribe(consults => this.consultations = consults);
+    //this.consultService.getConsultations()
+    //.subscribe(consults => this.consultations = consults);
   }
 
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ConsultationDetailsComponent } from './consultation-details/consultation-details.component';
@@ -20,7 +21,8 @@ import { AddConsultationComponent } from './add-consultation/add-consultation.co
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect
+from flask_cors import CORS
 from flask_migrate import Migrate
 from marshmallow import ValidationError
 from sqlalchemy.exc import NoResultFound
@@ -18,6 +19,7 @@ with app.app_context():
     db.create_all()
 control = Controller()
 
+CORS(app)
 
 @app.route("/")
 def root():
@@ -28,7 +30,7 @@ def root():
 def get_all_consults():
     consults = control.get_all_consults()
     result = consults_schema.dump(consults)
-    return {'consults': result}
+    return result
 
 
 @app.route('/med-card/api/consultations/<int:pk>', methods=['GET'])
@@ -39,14 +41,14 @@ def get_consult(pk):
         return {"message": "Consultation could not be found."}, 400
 
     result = consult_schema.dump(consult)
-    return {"consult": result}
+    return result
 
 
 @app.route('/med-card/api/consultations/', methods=['POST'])
 def new_consult():
     json_data = request.get_json()
     if not json_data:
-        return {"message": "No input data provided"}, 400
+        return {"data": "No input data provided"}, 400
     try:
         data = consult_schema.load(json_data)
     except ValidationError as err:

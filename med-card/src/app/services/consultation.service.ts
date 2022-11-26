@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
+
 import { Consultation } from '../model/consultation.model';
-import { CONSULTATIONS } from '../mock-consultations';
 import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConsultationService {
 
-  constructor() { }
+  url = "http://127.0.0.1:5000/med-card/api/consultations"
+  constructor(private http: HttpClient) {}
 
-  getConsultations(): Observable<Consultation[]> {
-    const consultations = of(CONSULTATIONS);
-    return consultations;
+  getConsultations() {
+    return this.http.get<Consultation[]>(this.url);
   }
 }
