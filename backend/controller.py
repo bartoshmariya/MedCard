@@ -31,3 +31,11 @@ class Controller:
     def get_consult_by_id(self, pk):
         consult = Consultation.query.filter(Consultation.id == pk).one()
         return consult
+    # update_consult(self, pk):
+    #
+    #
+    ###
+    # delete_consult(self, pk):
+    #
+    #
+    ###

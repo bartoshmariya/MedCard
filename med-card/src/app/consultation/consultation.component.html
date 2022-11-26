@@ -19,7 +19,7 @@
         <td>{{consult.doctor}}</td>
         <td>{{consult.diagnosis}}</td>
         <td>{{consult.date| date: 'medium'}}</td>
-        <td><button class= "btn btn-info" type="button" (mouseenter)="onUpdate(consult)" data-bs-toggle="modal" data-bs-target="#moreModal">Подробнее</button></td>
+        <td><button class= "btn btn-info" type="button" (mouseenter)="onReadMore(consult)" data-bs-toggle="modal" data-bs-target="#moreModal">Подробнее</button></td>
         <td><button class= "btn btn-warning" type="button" (click)="onUpdate(consult)">Изменить</button></td>
         <td><button class= "btn btn-danger" type="button" (click)="onDelete(consult)">Удалить</button></td>
       </tr>
@@ -27,6 +27,5 @@
   </table>
 </div>
 
-
+<app-consultation-details [consultation]="selectedConsultation"></app-consultation-details>
 <router-outlet></router-outlet>
-<app-consultation-details></app-consultation-details>

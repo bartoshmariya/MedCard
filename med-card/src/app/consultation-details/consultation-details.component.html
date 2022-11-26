@@ -1,4 +1,4 @@
-<div *ngIf="consultDetailService.consultation as consult">
+<div *ngIf="consultation as consult">
   <div class="modal fade" id="moreModal" tabindex="-1" aria-labelledby="moreModalLable" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -19,7 +19,7 @@
               </div>
               <div class="mb-3">
                 <label for="dateСonclusionTextInput" class="form-label">Дата:</label>
-                <input type="text" id="dateConclusionTextInput" class="form-control" placeholder="{{consult.getDateConclusion() | date: 'medium'}}">
+                <input type="text" id="dateConclusionTextInput" class="form-control" placeholder="{{consult.date | date: 'medium'}}">
               </div>
               <div class="mb-3">
                 <label for="doctorTextInput" class="form-label">Доктор:</label>

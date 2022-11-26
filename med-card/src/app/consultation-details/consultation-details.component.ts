@@ -11,7 +11,9 @@ import { ConsultationDetailsService } from '../services/consultation-details.ser
 export class ConsultationDetailsComponent implements OnInit {
 
   constructor(public consultDetailService: ConsultationDetailsService) { }
-  consultation!: Consultation;
+
+  @Input() consultation!: Consultation;
+  
   ngOnInit(): void {
 
   }

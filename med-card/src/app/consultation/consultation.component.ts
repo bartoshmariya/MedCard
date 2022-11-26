@@ -14,15 +14,17 @@ export class ConsultationComponent implements OnInit {
 
   consultations: Consultation[] = [];
 
-  selectedConsultation?: Consultation;
+  selectedConsultation!: Consultation;
 
   ngOnInit(): void {
-    this.consultService.getConsultations().subscribe((data: Consultation[]) => this.consultations = data);
+    this.getConsultations();
   }
 
-  onUpdate(consultation: Consultation): void {
-    //this.selectedConsultation = consultation;
-    //this.consultDetailSerivce.update(this.selectedConsultation);
+  onReadMore(consultation: Consultation): void {
+    this.selectedConsultation = consultation;
+  }
+  onUpdate(consultation: Consultation) {
+    
   }
 
   onDelete(consultation: Consultation): void {
@@ -32,8 +34,7 @@ export class ConsultationComponent implements OnInit {
   }
 
   getConsultations(): void {
-    //this.consultService.getConsultations()
-    //.subscribe(consults => this.consultations = consults);
+    this.consultService.getConsultations().subscribe((data: Consultation[]) => this.consultations = data);
   }
 
 }

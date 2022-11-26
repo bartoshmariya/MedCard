@@ -6,7 +6,6 @@ export interface Consultation {
   recommendation: string;
   department: string;
   doctor: string;
-  dateСonclusion: Date;
 
 }
 
