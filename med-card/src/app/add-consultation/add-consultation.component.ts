@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Consultation } from '../model/consultation.model';
+import { ConsultationService } from '../services/consultation.service';
 
 @Component({
   selector: 'app-add-consultation',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddConsultationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private consultationService: ConsultationService ) { }
 
-  ngOnInit(): void {
+  consultation: Consultation = {
+    patient: '',
+    diagnosis: '',
+    recommendation: '',
+    department: '',
+    doctor: ''
   }
 
+  ngOnInit(): void {
+
+  }
+  onConsultCreate(consults: Consultation): void {
+    console.log(consults);
+    this.consultationService.postConsultation(this.consultation)
+    .subscribe(
+      (res) => console.log(res)
+    );
+  }
 }

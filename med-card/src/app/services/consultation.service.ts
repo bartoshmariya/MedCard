@@ -9,10 +9,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ConsultationService {
 
-  url = "http://127.0.0.1:5000/med-card/api/consultations"
+  url = "http://127.0.0.1:5000/med-card/api/consultations/";
+
   constructor(private http: HttpClient) {}
 
   getConsultations() {
     return this.http.get<Consultation[]>(this.url);
+  }
+  postConsultation(consultation: Consultation) {
+    return this.http.post(this.url + 'add/', consultation);
   }
 }

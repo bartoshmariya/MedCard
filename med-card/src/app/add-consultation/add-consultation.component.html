@@ -1,29 +1,29 @@
 <div class="container d-flex align-items-center justify-content-center">
     <div class="col-10 container-form">
-        <form>
+        <form #consultationForm="ngForm" (ngSubmit)="onConsultCreate(consultationForm.value)">
             <div class="mb-3">
                 <label for="patientInput" class="form-label">Имя пациента</label>
-                <input type="text" class="form-control" id="patientInputId">
+                <input name="patient" type="text" class="form-control" id="patientInputId" [(ngModel)]="consultation.patient">
                 <div id="patientInputHintId" class="form-text">Введите фамилию, имя и отчество пациента.</div>
             </div>
             <div class="mb-3">
                 <label for="diagnosisInput" class="form-label">Диагноз</label>
-                <input type="text" class="form-control" id="diagnosisInputId">
+                <input name="diagnosis" type="text" class="form-control" id="diagnosisInputId" [(ngModel)]="consultation.diagnosis">
                 <div id="diagnosisInputHintId" class="form-text">Подтвердите диагноз пациента.</div>
             </div>
             <div class="mb-3">
                 <label for="departInput" class="form-label">Отделение</label>
-                <input type="text" class="form-control" id="departInputId">
+                <input name="depart" type="text" class="form-control" id="departInputId" [(ngModel)]="consultation.department">
                 <div id="departInputHintId" class="form-text">Введите название отделения, в которое обратился пациент.</div>
             </div>
             <div class="mb-3">
                 <label for="doctorInput" class="form-label">Доктор</label>
-                <input type="text" class="form-control" id="doctorInputId">
+                <input name="doctor" type="text" class="form-control" id="doctorInputId" [(ngModel)]="consultation.doctor">
                 <div id="doctorInputHintId" class="form-text">Введите фамилию, имя и отчество доктора.</div>
             </div>
             <div class="mb-3 input-group">
-                <span class="input-group-text">Рекоммендации по лечению</span>
-                <textarea type="text" class="form-control" id="recommInputId"></textarea>
+                <span class="input-group-text">Рекомендации по лечению</span>
+                <textarea name="recommendation" type="text" class="form-control" id="recommInputId" [(ngModel)]="consultation.recommendation"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Отправить</button>
         </form>
